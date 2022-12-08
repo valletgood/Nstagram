@@ -1,38 +1,81 @@
+body {
+    background-color: rgb(250, 250, 250);
+}
+
 .App {
-  text-align: center;
+    width: 100%;
+    margin-top: 80px;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Login */
+
+.Login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Login_input {
+    border: 1px solid #ececec;
+    padding : 20px;
+    background-color: white;
+    margin: 20px;
+    font-size: 15px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.Login_photo{
+    width: 330px;
+    margin-top: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.Login form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Login_form input {
+    background-color: rgb(250, 250, 250);
+    padding:10px;
+    overflow: hidden;
+    border: 1px solid #ecececeb;
+    border-radius: 5px;
+    margin: 10px;
+    width: 200px;
+}
+
+.Login_submit {
+    cursor: pointer;
+}
+
+.Login_btns button{
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+}
+
+.Login_logo {
+    width: 250px;
+}
+
+.Login_signUp {
+    border: none;
+    background-color: white;
+    border-bottom: 1px solid gray;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+/* Home */
+
+.Home_container {
+    text-align: center;
+    align-items: center;
+}
+nav {
+    text-align: center;
 }
