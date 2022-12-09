@@ -1,0 +1,57 @@
+import React, { useState } from 'react';
+import { deleteDoc, doc, updateDoc } from 'firebase/firestore';
+import { ref, deleteObject } from 'firebase/storage'
+import { dbService, storageService } from '../fbase';
+
+const Nsta = ({ nstaObj, isOwner }) => {
+    const [isEdit, setIsEdit] = useState(false);
+    const [newText, setNewText] = useState(nstaObj.text);
+
+    const onDeleteGram = async () => {
+        const check = window.confirm('정말로 삭제하시겠습니까?')
+        if (check) {
+            await deleteDoc(doc(dbService, 'Nstagrams', nstaObj.id))
+            await deleteObject(ref(storageService, nstaObj.attachmentUrl))
+        }
+    }
+
+    const toggleEdit = () => {
+        setIsEdit((prev => !prev))
+    }
+
+    const onSubmit = async () => {
+        const editGram = doc(dbService, 'Nstagrams', nstaObj.id);
+        await updateDoc(editGram, {
+            text: newText,
+        })
+        setIsEdit((prev => !prev))
+    }
+
+    return (
+        <div className='Nsta'>
+            {
+                isEdit ?
+                    <>
+                        <form onSubmit={onSubmit}>
+                            <input type='text' value={newText} placeholder='수정할 내용을 입력하세요' required onChange={(e) => setNewText(e.target.value)} />
+                            <input type='submit' value='수정' />
+                        </form>
+                        <button onClick={toggleEdit}>수정 취소</button>
+                    </>
+                    :
+                    <>
+                        <h4>{nstaObj.text}</h4>
+                        {nstaObj.attachmentUrl && <img src={nstaObj.attachmentUrl} style={{ width: '100px' }} />}
+                        {isOwner &&
+                            <div>
+                                <button onClick={onDeleteGram}>게시글 삭제</button>
+                                <button onClick={toggleEdit}>게시글 수정</button>
+                            </div>
+                        }
+                    </>
+            }
+        </div>
+    )
+}
+
+export default Nsta;

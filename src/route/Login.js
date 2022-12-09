@@ -35,13 +35,13 @@ const Login = () => {
 
     return (
         <div className='Login'>
-            <img className='Login_photo' src={process.env.PUBLIC_URL + '/assets/Login_photo.png'} />
+            <img className='Login_photo' src={process.env.PUBLIC_URL + '/assets/Login_photo.png'} alt='Login_photo' />
             <div>
                 <div className='Login_input'>
                     <form className='Login_form' onSubmit={onSubmit}>
-                        <img className='Login_logo' src={process.env.PUBLIC_URL + '/assets/instagram_logo.png'} />
-                        <input type='text' value={email} placeholder='아이디를 입력해주세요' onChange={(e) => setEmail(e.target.value)} />
-                        <input type='password' value={password} placeholder='비밀번호를 입력해주세요' onChange={(e) => setPassword(e.target.value)} />
+                        <img className='Login_logo' src={process.env.PUBLIC_URL + '/assets/instagram_logo.png'} alt='intagram_logo' />
+                        <input type='text' value={email} placeholder='아이디를 입력해주세요' onChange={(e) => setEmail(e.target.value)} required />
+                        <input type='password' value={password} placeholder='비밀번호를 입력해주세요' onChange={(e) => setPassword(e.target.value)} required />
                         <input className='Login_submit' type='submit' value='로그인' />
                         <p>------------ 또는 ------------</p>
                         {error && <span>{error}</span>}

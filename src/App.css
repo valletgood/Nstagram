@@ -76,6 +76,18 @@ body {
     text-align: center;
     align-items: center;
 }
-nav {
-    text-align: center;
+
+.Home .Home_file {
+align-items: center;
 }
+
+/* Navigation */
+
+nav {
+    display: flex;
+    justify-content: center;
+    padding: 10px
+}
+
+/* Nsta */
+
