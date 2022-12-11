@@ -3,7 +3,7 @@ import { deleteDoc, doc, updateDoc } from 'firebase/firestore';
 import { ref, deleteObject } from 'firebase/storage'
 import { dbService, storageService } from '../fbase';
 
-const Nsta = ({ nstaObj, isOwner }) => {
+const Nsta = ({ nstaObj, isOwner, userObj }) => {
     const [isEdit, setIsEdit] = useState(false);
     const [newText, setNewText] = useState(nstaObj.text);
 
@@ -40,8 +40,9 @@ const Nsta = ({ nstaObj, isOwner }) => {
                     </>
                     :
                     <>
-                        <h4>{nstaObj.text}</h4>
+                        <h3>{userObj.displayName}</h3>
                         {nstaObj.attachmentUrl && <img src={nstaObj.attachmentUrl} style={{ width: '100px' }} />}
+                        <p>{nstaObj.text}</p>
                         {isOwner &&
                             <div>
                                 <button onClick={onDeleteGram}>게시글 삭제</button>

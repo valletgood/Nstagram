@@ -10,6 +10,7 @@ const Home = ({ userObj }) => {
     const [grams, setGrams] = useState([])
     const [attachment, setAttachment] = useState('');
 
+
     const onSubmit = async (e) => {
         if (gram === '') {
             return;
@@ -78,12 +79,12 @@ const Home = ({ userObj }) => {
         <div className='Home'>
             <form onSubmit={onSubmit}>
                 <div className='Home_input'>
-                    <input type='text' value={gram} placeholder='무슨 생각중인가요?' onChange={(e) => setGram(e.target.value)} />
-                    <input type='submit' value='&rarr;' />
+                    <input className='Home_input_text' type='text' value={gram} placeholder='무슨 생각중인가요?' onChange={(e) => setGram(e.target.value)} />
+                    <input className='Home_input_submit' type='submit' value='&rarr;' />
                 </div>
                 <div className='Home_file'>
                     <label htmlFor='attach_file'>
-                        <span>Add Photos</span>
+                        <span>Add Photos </span>
                     </label>
                     <input id='attach_file' type='file' accept='images/*' onChange={onFileChange} />
                 </div>
@@ -96,8 +97,8 @@ const Home = ({ userObj }) => {
                     </div>
                 }
             </form>
-            <div>
-                {grams.map((it) => <Nsta key={it.id} nstaObj={it} isOwner={it.createrId === userObj.uid} />)}
+            <div className='Home_nsta'>
+                {grams.map((it) => <Nsta key={it.id} nstaObj={it} userObj={userObj} isOwner={it.createrId === userObj.uid} />)}
             </div>
         </div>
     )

@@ -14,6 +14,7 @@ function App() {
       displayName: user.displayName,
       uid: user.uid,
       updateProfile: (args) => user.updateProfile(args),
+      profileImg: user.photoURL
     })
   }
 
@@ -24,6 +25,7 @@ function App() {
           displayName: user.displayName,
           uid: user.uid,
           updateProfile: (args) => user.updateProfile(args),
+          profileImg: user.photoURL
         })
         const uid = user.uid
       } else {
@@ -32,6 +34,7 @@ function App() {
       setInit(true)
     })
   }, [])
+
 
   return (
     <div className="App">

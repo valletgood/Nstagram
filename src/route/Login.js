@@ -36,7 +36,7 @@ const Login = () => {
     return (
         <div className='Login'>
             <img className='Login_photo' src={process.env.PUBLIC_URL + '/assets/Login_photo.png'} alt='Login_photo' />
-            <div>
+            <div className='Login_container'>
                 <div className='Login_input'>
                     <form className='Login_form' onSubmit={onSubmit}>
                         <img className='Login_logo' src={process.env.PUBLIC_URL + '/assets/instagram_logo.png'} alt='intagram_logo' />
@@ -50,9 +50,9 @@ const Login = () => {
                         <button onClick={onSocialLogin}><FontAwesomeIcon icon={faGoogle} /> 구글로 로그인하기</button>
                     </div>
                 </div>
-                <span className='Login_input'>
+                <div className='Login_input'>
                     아이디와 비밀번호를 입력 후 <input className='Login_signUp' type='button' value='회원가입' onClick={signUp} />을 눌러주세요
-                </span>
+                </div>
             </div>
         </div>
     )
