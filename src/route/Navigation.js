@@ -13,6 +13,7 @@ const Navigation = ({ userObj }) => {
     }
     return (
         <nav>
+            <img style={{ width: '100px', margin: 'auto', marginTop: '10px' }} src={process.env.PUBLIC_URL + 'assets/instagram_logo.png'} />
             <Link to='/' >
                 <h4>Home</h4>
             </Link>

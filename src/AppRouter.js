@@ -8,6 +8,7 @@ import Navigation from './route/Navigation';
 import Profile from './route/Profile';
 
 const AppRouter = ({ userObj, isLogIn, reLoadUser }) => {
+
     return (
         <Router>
             <>

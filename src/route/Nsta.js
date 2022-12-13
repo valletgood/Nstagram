@@ -4,6 +4,7 @@ import { ref, deleteObject } from 'firebase/storage'
 import { dbService, storageService } from '../fbase';
 
 const Nsta = ({ nstaObj, isOwner, userObj }) => {
+
     const [isEdit, setIsEdit] = useState(false);
     const [newText, setNewText] = useState(nstaObj.text);
 
@@ -48,9 +49,9 @@ const Nsta = ({ nstaObj, isOwner, userObj }) => {
                         {nstaObj.attachmentUrl && <img src={nstaObj.attachmentUrl} style={{ width: '100px' }} />}
                         <p>{nstaObj.text}</p>
                         {isOwner &&
-                            <div>
-                                <button onClick={onDeleteGram}>게시글 삭제</button>
-                                <button onClick={toggleEdit}>게시글 수정</button>
+                            <div className='Nsta_btns'>
+                                <button style={{ backgroundColor: '#fd565f' }} onClick={onDeleteGram}>게시글 삭제</button>
+                                <button style={{ backgroundColor: '#ececec' }} onClick={toggleEdit}>게시글 수정</button>
                             </div>
                         }
                     </>

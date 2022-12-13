@@ -11,8 +11,9 @@ const Profile = ({ userObj, reLoadUser }) => {
 
     const navigate = useNavigate();
 
-    const logOut = () => {
-        authService.signOut();
+    const cancelEdit = () => {
+        setNewName(userObj.displayName)
+        setProfileUrl(userObj.profileImg)
         navigate('/', { replace: true })
     }
 
@@ -68,6 +69,7 @@ const Profile = ({ userObj, reLoadUser }) => {
                 <input className='Profile_image' type='file' onChange={onFileChange} /><br />
                 <input className='Profile_submit' type='submit' value='변경' />
             </form>
+            <input className='Profile_cancel' type='button' value='취소' onClick={cancelEdit} />
         </div>
     )
 }

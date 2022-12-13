@@ -9,7 +9,7 @@ body {
 
 .container{
     display: grid;
-    grid-template-columns: 1fr 3fr 1.5fr;
+    grid-template-columns: 1fr 3fr 2fr;
 }
 
 /* Login */
@@ -96,11 +96,36 @@ body {
     align-items: center;
 }
 
-.Home .Home_file {
-    align-items: center;
+.Home_nsta {
+    margin-bottom: 20px;
 }
 
-.Home_input_text {
+/* Add */
+
+.Add {
+    margin-right: 20px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #ecececeb;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.Add_file {
+text-align: center;
+}
+
+.Add_input_text {
+    width: 90%;
+    height: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    background-color: white;
+    border: 1px solid #ecececeb;
+}
+
+.Add_input_submit{
     width: 50%;
     padding: 10px;
     border-radius: 5px;
@@ -109,17 +134,14 @@ body {
     border: 1px solid #ecececeb;
 }
 
-.Home_input_submit{
-    width: 10%;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 10px;
-    background-color: white;
-    border: 1px solid #ecececeb;
+.Add_submit{
+text-align: center;
 }
 
-.Home_nsta {
-    margin-bottom: 20px;
+.attach_preview {
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
 }
 
 /* Navigation */
@@ -131,6 +153,7 @@ nav {
     background-color: white;
     border: 1px solid #ecececeb;
     border-radius: 5px;
+    height: 600px;
 }
 
 nav a {
@@ -155,11 +178,28 @@ nav button {
     border-radius: 5px;
 }
 
+.Nsta_btns button{
+    margin: 20px;
+    background-color: white;
+    border: 1px solid #ecececeb;
+    border-radius: 5px;
+    width: 20%;
+    padding: 10px;
+}
+
+
 /* Profile */
 
 .Profile{
+    margin-right: 20px;
     text-align: center;
     justify-content: center;
+    text-align: center;
+    background-color: white;
+    border: 1px solid #ecececeb;
+    border-radius: 5px;
+    height: 350px;
+    padding: 20px;
 }
 
 .Profile_input {
@@ -181,7 +221,7 @@ nav button {
     cursor: pointer;
 }
 
-.Profile_logout {
+.Profile_cancel {
     padding: 10px;
     width: 50%;
     background-color: #fd565f;
@@ -193,14 +233,12 @@ nav button {
 
 /* Detail */
 
-.Detail_container {
-    padding: 10px;
+.Detail {
+    text-align: center;
     background-color: white;
     border: 1px solid #ecececeb;
     border-radius: 5px;
+    height: 200px;
+    padding: 20px;
     margin-right: 20px;
-}
-
-.Detail {
-    text-align: center;
 }
