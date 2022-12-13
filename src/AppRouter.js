@@ -11,29 +11,31 @@ const AppRouter = ({ userObj, isLogIn, reLoadUser }) => {
     return (
         <Router>
             <>
-                {isLogIn && <Navigation userObj={userObj} />}
-                <div className='Home_container'>
-                    <Routes>
-                        {isLogIn ?
-                            <>
+                {isLogIn ?
+                    <div className='container'>
+                        <Navigation userObj={userObj} />
+                        <div className='Home_container'>
+                            <Routes>
                                 <Route path='/' element={<Home userObj={userObj} />} />
                                 <Route path='/Profile' element={<Home userObj={userObj} />} />
                                 <Route path='/Add' element={<Home userObj={userObj} />} />
-                            </>
-                            :
-                            <>
-                                <Route path='/' element={<Login />} />
-                            </>
-                        }
-                    </Routes>
-                </div>
-                <div className='Detail_container'>
-                    <Routes>
-                        <Route path='/' element={<Detail userObj={userObj} />} />
-                        <Route path='/Profile' element={<Profile userObj={userObj} reLoadUser={reLoadUser} />} />
-                        <Route path='/Add' element={<Add userObj={userObj} />} />
-                    </Routes>
-                </div>
+                            </Routes>
+                        </div>
+                        <div className='Detail_container'>
+                            <Routes>
+                                <Route path='/' element={<Detail userObj={userObj} />} />
+                                <Route path='/Profile' element={<Profile userObj={userObj} reLoadUser={reLoadUser} />} />
+                                <Route path='/Add' element={<Add userObj={userObj} />} />
+                            </Routes>
+                        </div>
+                    </div>
+                    :
+                    <>
+                        <Routes>
+                            <Route path='/' element={<Login />} />
+                        </Routes>
+                    </>
+                }
             </>
         </Router>
     )

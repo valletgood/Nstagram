@@ -10,8 +10,12 @@ const Nsta = ({ nstaObj, isOwner, userObj }) => {
     const onDeleteGram = async () => {
         const check = window.confirm('정말로 삭제하시겠습니까?')
         if (check) {
-            await deleteDoc(doc(dbService, 'Nstagrams', nstaObj.id))
-            await deleteObject(ref(storageService, nstaObj.attachmentUrl))
+            if (nstaObj.attachmentUrl) {
+                await deleteObject(ref(storageService, nstaObj.attachmentUrl))
+                await deleteDoc(doc(dbService, 'Nstagrams', nstaObj.id))
+            } else {
+                await deleteDoc(doc(dbService, 'Nstagrams', nstaObj.id))
+            }
         }
     }
 
