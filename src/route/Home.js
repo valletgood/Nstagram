@@ -1,37 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import { collection, addDoc, getDocs, query, orderBy, onSnapshot } from 'firebase/firestore'
-import { getDownloadURL, ref, uploadString } from 'firebase/storage'
+// import { getDownloadURL, ref, uploadString } from 'firebase/storage'
 import { dbService, storageService } from '../fbase';
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 import Nsta from './Nsta';
 
 const Home = ({ userObj }) => {
-    const [gram, setGram] = useState('');
+    // const [gram, setGram] = useState('');
     const [grams, setGrams] = useState([])
-    const [attachment, setAttachment] = useState('');
+    // const [attachment, setAttachment] = useState('');
 
 
-    const onSubmit = async (e) => {
-        if (gram === '') {
-            return;
-        }
-        e.preventDefault();
-        let attachmentUrl = '';
-        if (attachment !== '') {
-            const fileRef = ref(storageService, `${userObj.uid}/${uuidv4()}`)
-            const response = await uploadString(fileRef, attachment, 'data_url')
-            attachmentUrl = await getDownloadURL(ref(storageService, fileRef))
-        }
-        const newItem = {
-            text: gram,
-            createdAt: Date.now(),
-            createrId: userObj.uid,
-            attachmentUrl,
-        }
-        const docRef = await addDoc(collection(dbService, 'Nstagrams'), newItem)
-        setGram('')
-        setAttachment('')
-    }
+    // const onSubmit = async (e) => {
+    //     if (gram === '') {
+    //         return;
+    //     }
+    //     e.preventDefault();
+    //     let attachmentUrl = '';
+    //     if (attachment !== '') {
+    //         const fileRef = ref(storageService, `${userObj.uid}/${uuidv4()}`)
+    //         const response = await uploadString(fileRef, attachment, 'data_url')
+    //         attachmentUrl = await getDownloadURL(ref(storageService, fileRef))
+    //     }
+    //     const newItem = {
+    //         text: gram,
+    //         createdAt: Date.now(),
+    //         createrId: userObj.uid,
+    //         attachmentUrl,
+    //     }
+    //     const docRef = await addDoc(collection(dbService, 'Nstagrams'), newItem)
+    //     setGram('')
+    //     setAttachment('')
+    // }
 
     const getGrams = async () => {
         const querySnapshot = await getDocs(collection(dbService, 'Nstagrams'));
@@ -46,20 +46,20 @@ const Home = ({ userObj }) => {
         })
     }
 
-    const onFileChange = (e) => {
-        const item = e.target.files
-        const theItem = item[0]
-        const reader = new FileReader();
-        reader.onloadend = (finishedEvnet) => {
-            const imgUrl = finishedEvnet.currentTarget.result
-            setAttachment(imgUrl)
-        }
-        reader.readAsDataURL(theItem)
-    }
+    // const onFileChange = (e) => {
+    //     const item = e.target.files
+    //     const theItem = item[0]
+    //     const reader = new FileReader();
+    //     reader.onloadend = (finishedEvnet) => {
+    //         const imgUrl = finishedEvnet.currentTarget.result
+    //         setAttachment(imgUrl)
+    //     }
+    //     reader.readAsDataURL(theItem)
+    // }
 
-    const onClearFile = () => {
-        setAttachment('')
-    }
+    // const onClearFile = () => {
+    //     setAttachment('')
+    // }
 
     useEffect(() => {
         getGrams();
@@ -77,7 +77,7 @@ const Home = ({ userObj }) => {
 
     return (
         <div className='Home'>
-            <form onSubmit={onSubmit}>
+            {/* <form onSubmit={onSubmit}>
                 <div className='Home_input'>
                     <input className='Home_input_text' type='text' value={gram} placeholder='무슨 생각중인가요?' onChange={(e) => setGram(e.target.value)} />
                     <input className='Home_input_submit' type='submit' value='&rarr;' />
@@ -96,7 +96,7 @@ const Home = ({ userObj }) => {
                         </div>
                     </div>
                 }
-            </form>
+            </form> */}
             <div className='Home_nsta'>
                 {grams.map((it) => <Nsta key={it.id} nstaObj={it} userObj={userObj} isOwner={it.createrId === userObj.uid} />)}
             </div>

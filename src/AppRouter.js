@@ -1,5 +1,7 @@
 import React from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import Add from './route/Add';
+import Detail from './route/Detail';
 import Home from './route/Home';
 import Login from './route/Login';
 import Navigation from './route/Navigation';
@@ -15,13 +17,21 @@ const AppRouter = ({ userObj, isLogIn, reLoadUser }) => {
                         {isLogIn ?
                             <>
                                 <Route path='/' element={<Home userObj={userObj} />} />
-                                <Route path='/Profile' element={<Profile userObj={userObj} reLoadUser={reLoadUser} />} />
+                                <Route path='/Profile' element={<Home userObj={userObj} />} />
+                                <Route path='/Add' element={<Home userObj={userObj} />} />
                             </>
                             :
                             <>
                                 <Route path='/' element={<Login />} />
                             </>
                         }
+                    </Routes>
+                </div>
+                <div className='Detail_container'>
+                    <Routes>
+                        <Route path='/' element={<Detail userObj={userObj} />} />
+                        <Route path='/Profile' element={<Profile userObj={userObj} reLoadUser={reLoadUser} />} />
+                        <Route path='/Add' element={<Add userObj={userObj} />} />
                     </Routes>
                 </div>
             </>
