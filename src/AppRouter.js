@@ -7,35 +7,40 @@ import Login from './route/Login';
 import Navigation from './route/Navigation';
 import Profile from './route/Profile';
 
+export const onEdit = React.createContext();
+
 const AppRouter = ({ userObj, isLogIn, reLoadUser }) => {
 
     return (
         <Router>
             <>
                 {isLogIn ?
-                    <div className='container'>
-                        <Navigation userObj={userObj} />
-                        <div className='Home_container'>
-                            <Routes>
-                                <Route path='/' element={<Home userObj={userObj} />} />
-                                <Route path='/Profile' element={<Home userObj={userObj} />} />
-                                <Route path='/Add' element={<Home userObj={userObj} />} />
-                            </Routes>
+                    <onEdit.Provider value={false}>
+                        <div className='container'>
+                            <Navigation userObj={userObj} />
+                            <div className='Home_container'>
+                                <Routes>
+                                    <Route path='/' element={<Home userObj={userObj} />} />
+                                    <Route path='/Profile' element={<Home userObj={userObj} />} />
+                                    <Route path='/Add' element={<Home userObj={userObj} />} />
+                                </Routes>
+                            </div>
+                            <div className='Detail_container'>
+                                <Routes>
+                                    <Route path='/' element={<Detail userObj={userObj} />} />
+                                    <Route path='/Profile' element={<Profile userObj={userObj} reLoadUser={reLoadUser} />} />
+                                    <Route path='/Add' element={<Add userObj={userObj} />} />
+                                </Routes>
+                            </div>
                         </div>
-                        <div className='Detail_container'>
-                            <Routes>
-                                <Route path='/' element={<Detail userObj={userObj} />} />
-                                <Route path='/Profile' element={<Profile userObj={userObj} reLoadUser={reLoadUser} />} />
-                                <Route path='/Add' element={<Add userObj={userObj} />} />
-                            </Routes>
-                        </div>
-                    </div>
+                    </onEdit.Provider>
                     :
                     <>
                         <Routes>
                             <Route path='/' element={<Login />} />
                         </Routes>
                     </>
+
                 }
             </>
         </Router>
