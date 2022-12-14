@@ -35,10 +35,8 @@ const Home = ({ userObj }) => {
     }, [])
 
     return (
-        <div className='Home'>
-            <div className='Home_nsta'>
-                {grams.map((it) => <Nsta key={it.id} nstaObj={it} userObj={userObj} isOwner={it.createrId === userObj.uid} />)}
-            </div>
+        <div className='Home_nsta'>
+            {grams.map((it) => <Nsta key={it.id} nstaObj={it} userObj={userObj} isOwner={it.createrId === userObj.uid} />)}
         </div>
     )
 }

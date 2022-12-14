@@ -45,8 +45,11 @@ const Nsta = ({ nstaObj, isOwner, userObj }) => {
                     </>
                     :
                     <>
-                        <h3>{userObj.displayName}</h3>
-                        {nstaObj.attachmentUrl && <img src={nstaObj.attachmentUrl} style={{ width: '100px' }} />}
+                        <p>
+                            <img src={userObj.profileImg} style={{ width: '30px', height: '30px', borderRadius: '50px', objectFit: 'cover', marginRight: '10px', border: '1px solid gray' }} />
+                            {userObj.displayName}
+                        </p>
+                        {nstaObj.attachmentUrl && <img src={nstaObj.attachmentUrl} style={{ width: '100%', objectFit: 'cover' }} />}
                         <p>{nstaObj.text}</p>
                         {isOwner &&
                             <div className='Nsta_btns'>
