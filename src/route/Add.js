@@ -52,23 +52,23 @@ const Add = ({ userObj }) => {
     return (
         <div className='Add'>
             <form onSubmit={onSubmit}>
-                <div className='Add_input'>
-                    <textarea className='Add_input_text' type='text' value={gram} placeholder='무슨 생각중인가요?' onChange={(e) => setGram(e.target.value)} />
-                </div>
                 <div className='Add_file'>
                     <label htmlFor='attach_file'>
                         <span>Add Photos </span>
                     </label>
-                    <input id='attach_file' type='file' accept='images/*' onChange={onFileChange} />
+                    <input id='attach_file' type='file' accept='images/*' onChange={onFileChange} style={{ display: 'none' }} />
                 </div>
                 {attachment &&
                     <div className='attach_preview'>
-                        <img src={attachment} style={{ width: '100px', backgroundImage: attachment }} />
+                        <img src={attachment} style={{ width: '100%', objectFit: 'cover' }} />
                         <div style={{ marginTop: '10px' }} onClick={onClearFile}>
                             <span style={{ cursor: 'pointer' }}>파일 삭제</span>
                         </div>
                     </div>
                 }
+                <div className='Add_input'>
+                    <textarea className='Add_input_text' type='text' value={gram} placeholder='무슨 생각중인가요?' onChange={(e) => setGram(e.target.value)} />
+                </div>
                 <div className='Add_submit'>
                     <input className='Add_input_submit' type='submit' value='게시' />
                 </div>

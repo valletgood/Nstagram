@@ -34,7 +34,7 @@ const Navigation = ({ userObj }) => {
                 <Link onClick={scrollTop} to='/Add'>
                     <h4>Add Story</h4>
                 </Link>
-                <button onClick={logOut}>LogOut</button>
+                <button style={{ cursor: 'pointer' }} onClick={logOut}>LogOut</button>
             </nav>
         </div>
     )

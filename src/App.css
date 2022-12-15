@@ -112,7 +112,7 @@ text-align: center;
 
 .Add_input_text {
     width: 90%;
-    height: 300px;
+    height: 200px;
     padding: 10px;
     border-radius: 5px;
     margin: 10px;
@@ -127,6 +127,7 @@ text-align: center;
     margin: 10px;
     background-color: white;
     border: 1px solid #ecececeb;
+    cursor: pointer;
 }
 
 .Add_submit{
@@ -190,6 +191,12 @@ nav button {
     border-radius: 5px;
     width: 20%;
     padding: 10px;
+    cursor: pointer;
+}
+
+.Nsta img{
+    width: 455px;
+    height: 455px;
 }
 
 
@@ -245,4 +252,70 @@ nav button {
     border-radius: 5px;
     height: 200px;
     padding: 20px;
+}
+
+/* Edit */
+
+.Edit_box {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 990;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.Edit {
+    width: 50%;
+    height: 80%;
+    z-index: 999;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ecececeb;
+    border-radius: 5px;
+    text-align: center;
+    padding: 20px;
+}
+
+.Edit_input_text {
+    width: 50%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    background-color: white;
+    border: 1px solid #ecececeb;
+}
+
+.Edit_submit {
+    display: flex;
+    justify-content: center;
+}
+
+.Edit_input_submit{
+    width: 100px;
+    background-color: #ececec;
+    border: 1px solid #ecececeb;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 40px;
+}
+
+.Edit_submit button {
+    width: 100px;
+    background-color: #fd565f;
+    border: 1px solid #ecececeb;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.attach_preview img{
+    width: 455px;
+    height: 455px;
+    object-fit: cover;
 }
