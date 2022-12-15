@@ -24,7 +24,7 @@ const Navigation = ({ userObj }) => {
     return (
         <div className='navigation'>
             <nav>
-                <img style={{ width: '100px', margin: 'auto', marginTop: '10px' }} src={process.env.PUBLIC_URL + 'assets/instagram_logo.png'} />
+                <img style={{ width: '100px', margin: 'auto', marginTop: '10px' }} src={process.env.PUBLIC_URL + 'assets/instagram_logo.png'} alt='Insta_Logo' />
                 <Link onClick={scrollTop} to='/' >
                     <h4>Home</h4>
                 </Link>

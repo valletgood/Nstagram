@@ -9,10 +9,11 @@ const Edit = ({ setEditOpen, userObj, nstaObj }) => {
     const [newText, setNewText] = useState(nstaObj.text);
 
     const [newAttachment, setNewAttachment] = useState(nstaObj.attachmentUrl);
-    console.log(nstaObj.attachmentUrl)
+
     const toggleEdit = () => {
         setEditOpen((prev => !prev))
     }
+
     const onSubmit = async () => {
         const editGram = doc(dbService, 'Nstagrams', nstaObj.id);
         let attachmentUrl = '';

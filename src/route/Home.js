@@ -7,6 +7,12 @@ const Home = ({ userObj }) => {
 
     const [grams, setGrams] = useState([])
 
+    const newSign = () => {
+        if (userObj.displayName === null) {
+            alert('프로필이 설정되지 않았습니다. Profile 탭으로 이동해 지금 바로 설정해주세요!')
+        }
+    }
+
     const getGrams = async () => {
         const querySnapshot = await getDocs(collection(dbService, 'Nstagrams'));
         querySnapshot.forEach((doc) => {
@@ -32,6 +38,7 @@ const Home = ({ userObj }) => {
             })
             setGrams(newArray)
         })
+        newSign();
     }, [])
 
     return (
