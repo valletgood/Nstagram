@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { deleteDoc, doc } from 'firebase/firestore';
 import { ref, deleteObject } from 'firebase/storage'
 import { dbService, storageService } from '../fbase';
@@ -8,6 +8,12 @@ const Nsta = ({ nstaObj, isOwner, userObj }) => {
 
     const [editOpen, setEditOpen] = useState(false);
 
+    const ownerId = nstaObj.createrId;
+    const ownerImg = nstaObj.createrImg;
+    const ownerName = nstaObj.createrName;
+    console.log(ownerId)
+    console.log(ownerImg)
+    console.log(ownerName)
     const onDeleteGram = async () => {
         const check = window.confirm('정말로 삭제하시겠습니까?')
         if (check) {
@@ -27,8 +33,8 @@ const Nsta = ({ nstaObj, isOwner, userObj }) => {
     return (
         <div className='Nsta'>
             <p>
-                <img src={userObj.profileImg} style={{ width: '30px', height: '30px', borderRadius: '50px', objectFit: 'cover', marginRight: '10px', border: '1px solid gray' }} />
-                {userObj.displayName}
+                <img src={ownerImg} style={{ width: '30px', height: '30px', borderRadius: '50px', objectFit: 'cover', marginRight: '10px', border: '1px solid gray' }} />
+                {ownerName}
             </p>
             {nstaObj.attachmentUrl && <img src={nstaObj.attachmentUrl} style={{ width: '100%', objectFit: 'cover' }} />}
             <p>{nstaObj.text}</p>

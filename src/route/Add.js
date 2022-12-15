@@ -11,7 +11,6 @@ const Add = ({ userObj }) => {
     const [gram, setGram] = useState('');
     const [attachment, setAttachment] = useState('');
 
-
     const onSubmit = async (e) => {
         if (gram === '') {
             return;
@@ -27,6 +26,8 @@ const Add = ({ userObj }) => {
             text: gram,
             createdAt: Date.now(),
             createrId: userObj.uid,
+            createrImg: userObj.profileImg,
+            createrName: userObj.displayName,
             attachmentUrl,
         }
         const docRef = await addDoc(collection(dbService, 'Nstagrams'), newItem)
